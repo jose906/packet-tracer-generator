@@ -45,12 +45,14 @@ import json
 import os
 import re
 import sys
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from pkt_core.builder.lab import Lab
 
 from engine.emit import services as svc
 from engine.emit import clients as cli
+from engine.emit import ios
 from validators.check import check_pkt
 
 _ROOT = Path(__file__).resolve().parent
@@ -179,7 +181,15 @@ def build(spec: dict, pt_version: str | None, seed: str | None = None) -> tuple[
             kwargs["pc_ip"] = [d["ip"], mask, d.get("gateway", "0.0.0.0")]
         if d.get("ios_config"):
             kwargs["ios_config"] = list(d["ios_config"])
+        if model == "Printer-PT" and model not in lab.models:
+            template = _ROOT / "engine" / "templates" / "Printer-PT.xml"
+            lab.models[model] = ET.tostring(ET.parse(template).getroot())
         dev_id = lab.add_device(model, name, **kwargs)
+        if model == "Printer-PT" and d.get("ip"):
+            cli.client_static(lab, dev_id, ip=d["ip"], mask=mask,
+                              gateway=d.get("gateway", "0.0.0.0"), dns=d.get("dns", ""))
+        if d.get("interfaces"):
+            ios.configure_2911(lab, dev_id, d["interfaces"])
         ids[name] = dev_id
         models[name] = model
         port_use[name] = 0
@@ -217,14 +227,19 @@ def build(spec: dict, pt_version: str | None, seed: str | None = None) -> tuple[
         lab.link(ids[d["name"]], a_port, ids[tgt], b_port, kind=d.get("link_kind", "copper"))
 
     for lk in spec.get("links", []):
+        kind = lk.get("kind", "copper")
         lab.link(ids[lk["a"]], lk["a_port"], ids[lk["b"]], lk["b_port"],
-                 kind=lk.get("kind", "copper"))
+                 kind="copper" if kind == "crossover" else kind)
+        if kind == "crossover":
+            lab.net.find("LINKS")[-1].find("CABLE/TYPE").text = "eCrossOver"
 
     # 4) services on the named server
     s = spec.get("services")
     if s:
         srv = ids[s["server"]]
         svc.clean_services(lab, srv)
+        if s.get("only_configured"):
+            svc.disable_template_services(lab, srv)
         if s.get("dhcp"):
             p = s["dhcp"]
             svc.author_dhcp(lab, srv, pool_name=p.get("pool_name", "pool"),
@@ -235,6 +250,8 @@ def build(spec: dict, pt_version: str | None, seed: str | None = None) -> tuple[
                             max_users=int(p.get("max_users", 100)))
         if s.get("dns"):
             svc.author_dns(lab, srv, [tuple(r) for r in s["dns"]])
+        if s.get("ftp") is not None:
+            svc.author_ftp(lab, srv, s["ftp"]["accounts"])
         if s.get("email"):
             e = s["email"]
             svc.author_email(lab, srv, domain=e.get("domain", "mail.com"),

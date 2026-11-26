@@ -1,0 +1,248 @@
+{
+  "name": "Actividad3",
+  "mask": "255.255.255.0",
+  "devices": [
+    {
+      "name": "R-Central",
+      "model": "2911",
+      "x": 420,
+      "y": 100,
+      "connect_to": "SW-Central",
+      "interfaces": {
+        "GigabitEthernet0/0": "192.168.10.1/24",
+        "GigabitEthernet0/1": "10.0.0.1/30"
+      },
+      "ios_config": [
+        "!",
+        "version 15.1",
+        "hostname R-Central",
+        "!",
+        "ip dhcp excluded-address 192.168.10.1 192.168.10.99",
+        "!",
+        "ip dhcp pool CENTRAL",
+        " network 192.168.10.0 255.255.255.0",
+        " default-router 192.168.10.1",
+        " dns-server 192.168.10.10",
+        "!",
+        "ip classless",
+        "ip route 192.168.20.0 255.255.255.0 10.0.0.2",
+        "!",
+        "end"
+      ]
+    },
+    {
+      "name": "SW-Central",
+      "model": "2960-24TT",
+      "x": 420,
+      "y": 250
+    },
+    {
+      "name": "Servidor-DNS-FTP",
+      "model": "Server-PT",
+      "x": 555,
+      "y": 190,
+      "ip": "192.168.10.10",
+      "gateway": "192.168.10.1",
+      "connect_to": "SW-Central"
+    },
+    {
+      "name": "PC-Central-01",
+      "model": "PC-PT",
+      "x": 70,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Central"
+    },
+    {
+      "name": "PC-Central-02",
+      "model": "PC-PT",
+      "x": 170,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Central"
+    },
+    {
+      "name": "PC-Central-03",
+      "model": "PC-PT",
+      "x": 270,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Central"
+    },
+    {
+      "name": "PC-Central-04",
+      "model": "PC-PT",
+      "x": 370,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Central"
+    },
+    {
+      "name": "PC-Central-05",
+      "model": "PC-PT",
+      "x": 470,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Central"
+    },
+    {
+      "name": "PC-Central-06",
+      "model": "PC-PT",
+      "x": 570,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Central"
+    },
+    {
+      "name": "PC-Central-07",
+      "model": "PC-PT",
+      "x": 670,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Central"
+    },
+    {
+      "name": "PC-Central-08",
+      "model": "PC-PT",
+      "x": 770,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Central"
+    },
+    {
+      "name": "R-Sucursal",
+      "model": "2911",
+      "x": 1250,
+      "y": 100,
+      "connect_to": "SW-Sucursal",
+      "interfaces": {
+        "GigabitEthernet0/0": "192.168.20.1/24",
+        "GigabitEthernet0/1": "10.0.0.2/30"
+      },
+      "ios_config": [
+        "!",
+        "version 15.1",
+        "hostname R-Sucursal",
+        "!",
+        "ip dhcp excluded-address 192.168.20.1 192.168.20.99",
+        "!",
+        "ip dhcp pool SUCURSAL",
+        " network 192.168.20.0 255.255.255.0",
+        " default-router 192.168.20.1",
+        " dns-server 192.168.10.10",
+        "!",
+        "ip classless",
+        "ip route 192.168.10.0 255.255.255.0 10.0.0.1",
+        "!",
+        "end"
+      ]
+    },
+    {
+      "name": "SW-Sucursal",
+      "model": "2960-24TT",
+      "x": 1250,
+      "y": 250
+    },
+    {
+      "name": "Impresora",
+      "model": "Printer-PT",
+      "x": 1385,
+      "y": 190,
+      "ip": "192.168.20.10",
+      "gateway": "192.168.20.1",
+      "connect_to": "SW-Sucursal"
+    },
+    {
+      "name": "PC-Sucursal-01",
+      "model": "PC-PT",
+      "x": 900,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Sucursal"
+    },
+    {
+      "name": "PC-Sucursal-02",
+      "model": "PC-PT",
+      "x": 1000,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Sucursal"
+    },
+    {
+      "name": "PC-Sucursal-03",
+      "model": "PC-PT",
+      "x": 1100,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Sucursal"
+    },
+    {
+      "name": "PC-Sucursal-04",
+      "model": "PC-PT",
+      "x": 1200,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Sucursal"
+    },
+    {
+      "name": "PC-Sucursal-05",
+      "model": "PC-PT",
+      "x": 1300,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Sucursal"
+    },
+    {
+      "name": "PC-Sucursal-06",
+      "model": "PC-PT",
+      "x": 1400,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Sucursal"
+    },
+    {
+      "name": "PC-Sucursal-07",
+      "model": "PC-PT",
+      "x": 1500,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Sucursal"
+    },
+    {
+      "name": "PC-Sucursal-08",
+      "model": "PC-PT",
+      "x": 1600,
+      "y": 435,
+      "dhcp": true,
+      "connect_to": "SW-Sucursal"
+    }
+  ],
+  "links": [
+    {
+      "a": "R-Central",
+      "a_port": "GigabitEthernet0/1",
+      "b": "R-Sucursal",
+      "b_port": "GigabitEthernet0/1",
+      "kind": "crossover"
+    }
+  ],
+  "services": {
+    "server": "Servidor-DNS-FTP",
+    "only_configured": true,
+    "dns": [
+      [
+        "archivos.empresa.local",
+        "192.168.10.10"
+      ]
+    ],
+    "ftp": {
+      "accounts": [
+        {
+          "username": "actividad3",
+          "password": "Actividad3-FTP",
+          "permissions": "RL"
+        }
+      ]
+    }
+  }
+}
