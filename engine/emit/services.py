@@ -269,3 +269,33 @@ def author_email(
         ET.SubElement(em, "USER%d" % i).text = user
         ET.SubElement(em, "PASSWORD%d" % i).text = password
         ET.SubElement(em, "NO_OF_MAILS%d" % i).text = "0"
+
+
+def author_ftp(lab, dev_id: str, accounts: list[dict[str, str]]) -> None:
+    """Enable the Server-PT FTP service and replace its template accounts."""
+    ftp = engine_of(lab, dev_id).find("FTP_SERVER")
+    if ftp is None:
+        raise ValueError("FTP requires a server template with FTP_SERVER")
+    _set(ftp, "ENABLED", "1")
+    manager = ftp.find("USER_ACCOUNT_MNGR")
+    if manager is None:
+        manager = ET.SubElement(ftp, "USER_ACCOUNT_MNGR")
+    for account in manager.findall("ACCOUNT"):
+        manager.remove(account)
+    for account in accounts:
+        record = ET.SubElement(manager, "ACCOUNT")
+        for field in ("username", "password", "permissions"):
+            _set(record, field.upper(), account[field])
+
+
+def disable_template_services(lab, dev_id: str) -> None:
+    """Disable inherited services before authoring an explicit service list."""
+    engine = engine_of(lab, dev_id)
+    for service in engine:
+        if service.tag.endswith("_SERVER"):
+            for flag in ("ENABLED", "HTTPSENABLED", "SMTP_ENABLED", "POP3_ENABLED"):
+                node = service.find(flag)
+                if node is not None:
+                    node.text = "0"
+    for flag in engine.findall("DHCP_SERVERS/ASSOCIATED_PORTS/ASSOCIATED_PORT/DHCP_SERVER/ENABLED"):
+        flag.text = "0"
