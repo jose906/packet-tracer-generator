@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="red-oficina" name="Red de oficina">
+    <mxGraphModel page="1" pageWidth="1200" pageHeight="800" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" value="" style="strokeColor=none;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="0" y="0" width="1170" height="740" />
+        </mxCell>
+        <mxCell id="title" value="Red de oficina" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#172b43;fontSize=32;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="34" y="19" width="780" height="44" />
+        </mxCell>
+        <mxCell id="sub" value="Topología física y segmentación IPv4" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#172b43;fontSize=16;fontColor=#496681;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="34" y="66" width="780" height="27" />
+        </mxCell>
+        <mxCell id="off" value="" style="rounded=1;arcSize=8;strokeColor=#b5d4e8;fillColor=#eaf4fb;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="24" y="252" width="524" height="407" />
+        </mxCell>
+        <mxCell id="offt" value="&lt;b&gt;Red cableada&lt;/b&gt;&lt;br&gt;192.168.40.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#172b43;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="264" width="492" height="50" />
+        </mxCell>
+        <mxCell id="staff" value="" style="rounded=1;arcSize=8;strokeColor=#b5dacc;fillColor=#eaf6f0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="567" y="252" width="277" height="407" />
+        </mxCell>
+        <mxCell id="stafft" value="&lt;b&gt;Wi‑Fi del personal&lt;/b&gt;&lt;br&gt;192.168.50.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#172b43;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="583" y="264" width="245" height="50" />
+        </mxCell>
+        <mxCell id="guest" value="" style="rounded=1;arcSize=8;strokeColor=#d6c5e8;fillColor=#f4effa;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="863" y="252" width="283" height="407" />
+        </mxCell>
+        <mxCell id="guestt" value="&lt;b&gt;Wi‑Fi de visitas&lt;/b&gt;&lt;br&gt;192.168.60.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#172b43;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="879" y="264" width="251" height="50" />
+        </mxCell>
+        <mxCell id="r" value="&lt;b&gt;R-Oficina · Cisco 2911&lt;/b&gt;&lt;br&gt;DHCP y aislamiento de visitas" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#e7f0fa;strokeColor=#6488ac;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="438" y="114" width="280" height="69" />
+        </mxCell>
+        <mxCell id="s0" value="&lt;b&gt;SW-Oficina&lt;/b&gt;&lt;br&gt;Cisco 2960-24TT" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="194" y="342" width="180" height="57" />
+        </mxCell>
+        <mxCell id="s1" value="&lt;b&gt;SW-Personal&lt;/b&gt;&lt;br&gt;Cisco 2960-24TT" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="617" y="342" width="180" height="57" />
+        </mxCell>
+        <mxCell id="s2" value="&lt;b&gt;SW-Visitas&lt;/b&gt;&lt;br&gt;Cisco 2960-24TT" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="913" y="342" width="180" height="57" />
+        </mxCell>
+        <mxCell id="p0" value="&lt;b&gt;Gi0/0&lt;/b&gt; · 192.168.40.1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#172b43;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="235" y="223" width="222" height="24" />
+        </mxCell>
+        <mxCell id="p1" value="&lt;b&gt;Gi0/1&lt;/b&gt; · 192.168.50.1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#172b43;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="565" y="223" width="222" height="24" />
+        </mxCell>
+        <mxCell id="p2" value="&lt;b&gt;Gi0/2&lt;/b&gt; · 192.168.60.1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#172b43;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="862" y="223" width="222" height="24" />
+        </mxCell>
+        <mxCell id="pc" value="&lt;b&gt;20 computadoras&lt;/b&gt;&lt;br&gt;PC-01 a PC-20" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="45" y="488" width="148" height="68" />
+        </mxCell>
+        <mxCell id="pr" value="&lt;b&gt;2 impresoras&lt;/b&gt;&lt;br&gt;192.168.40.11–12" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="210" y="488" width="148" height="68" />
+        </mxCell>
+        <mxCell id="server" value="&lt;b&gt;Servidor de archivos&lt;/b&gt;&lt;br&gt;192.168.40.10 · FTP" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="375" y="488" width="151" height="68" />
+        </mxCell>
+        <mxCell id="ap1" value="&lt;b&gt;AP-Personal&lt;/b&gt;&lt;br&gt;SSID Oficina-Personal" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="617" y="447" width="180" height="56" />
+        </mxCell>
+        <mxCell id="ap2" value="&lt;b&gt;AP-Visitas&lt;/b&gt;&lt;br&gt;SSID Oficina-Visitas" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="913" y="447" width="180" height="56" />
+        </mxCell>
+        <mxCell id="lap" value="&lt;b&gt;Laptop&lt;/b&gt;&lt;br&gt;DHCP" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="578" y="563" width="121" height="55" />
+        </mxCell>
+        <mxCell id="cell" value="&lt;b&gt;Celular&lt;/b&gt;&lt;br&gt;DHCP" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="715" y="563" width="121" height="55" />
+        </mxCell>
+        <mxCell id="visitor" value="&lt;b&gt;Celular de visita&lt;/b&gt;&lt;br&gt;DHCP" style="rounded=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#92aac2;fontSize=14;fontColor=#172b43;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="913" y="563" width="180" height="55" />
+        </mxCell>
+        <mxCell id="rs0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;exitX=0.17;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="r" target="s0">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="485.6" y="246" />
+              <mxPoint x="284" y="246" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rs1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;exitX=0.56;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="r" target="s1">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="594.8" y="222" />
+              <mxPoint x="707" y="222" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rs2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;exitX=0.85;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="r" target="s2">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="676.0" y="200" />
+              <mxPoint x="1003" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lanpc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="s0" target="pc">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="lanpr" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="s0" target="pr">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="lanserver" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="s0" target="server">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="apl1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;" edge="1" parent="1" source="s1" target="ap1">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="apl2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;" edge="1" parent="1" source="s2" target="ap2">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="ap1lap" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;dashed=1;strokeColor=#6e53a0;" edge="1" parent="1" source="ap1" target="lap">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="ap1cell" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;dashed=1;strokeColor=#6e53a0;" edge="1" parent="1" source="ap1" target="cell">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="ap2visitor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;strokeColor=#496681;strokeWidth=2;dashed=1;strokeColor=#6e53a0;" edge="1" parent="1" source="ap2" target="visitor">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="legend" value="Línea continua: Ethernet  ·  Línea discontinua: Wi‑Fi  ·  Las visitas no tienen acceso a las redes internas." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontColor=#172b43;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="34" y="676" width="1100" height="35" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
